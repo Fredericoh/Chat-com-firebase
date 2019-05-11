@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "891128094842",
+    "firebase_url": "https://chatfirebase-2c21b.firebaseio.com",
+    "project_id": "chatfirebase-2c21b",
+    "storage_bucket": "chatfirebase-2c21b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891128094842:android:33cdbf1396196ab3",
+        "android_client_info": {
+          "package_name": "faculdadedelta.edu.br.chatfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891128094842-rjuea8m5ttqfnt4438tu9q5h2bput8c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP1bJT20geVdTfLqJeEqkhGTUrWGkV1hM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891128094842-rjuea8m5ttqfnt4438tu9q5h2bput8c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
