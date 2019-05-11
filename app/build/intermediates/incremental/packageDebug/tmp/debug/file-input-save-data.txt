@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat May 11 02:29:26 BRT 2019
+0.baseType=DIRECTORY
+0.base=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+0.set=DEX
+count=1

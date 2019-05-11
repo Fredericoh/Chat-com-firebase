@@ -1,0 +1,4 @@
+#Fri May 10 03:21:48 BRT 2019
+base.0=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/4
+path.0=classes.dex
+renamed.0=classes.dex
