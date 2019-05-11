@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -109,11 +111,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void criarUsuario(){
 
-        String usuario = mEtUsuario.getText().toString();
+        String nomeUsuario = mEtUsuario.getText().toString();
         String email = mEtEmail.getText().toString();
         String senha = mEtSenha.getText().toString();
 
-        if (usuario == null || usuario.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()){
+        if (nomeUsuario == null || nomeUsuario.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()){
 
             Toast.makeText(getBaseContext(), "Os campos usuario, email e senha são obrigatorio. ", Toast.LENGTH_LONG).show();
             return;
@@ -158,6 +160,28 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
 
                                 Log.i("Teste", uri.toString());
+
+                                String uid = FirebaseAuth.getInstance().getUid();
+                                String nomeUsuario = mEtUsuario.getText().toString();
+                                String proFileUrl = uri.toString();
+
+                                final Usuario usuario = new Usuario(uid, nomeUsuario, proFileUrl);
+
+                                FirebaseFirestore.getInstance().collection("usuarios")
+                                        .add(usuario)
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            @Override
+                                            public void onSuccess(DocumentReference documentReference) {
+                                                Log.i("Teste", documentReference.getId());
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.i("Teste", e.getMessage());
+                                            }
+                                        });
                             }
                         });
                     }

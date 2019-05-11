@@ -1,7 +1,15 @@
 #Internal package file, do not edit.
-#Sat May 11 02:29:26 BRT 2019
+#Sat May 11 04:33:50 BRT 2019
+1.base=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/1
+2.path=classes.dex
 0.baseType=DIRECTORY
-0.base=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/0
+2.base=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/0
+2.set=DEX
+1.baseType=DIRECTORY
+count=3
+1.set=DEX
 0.path=classes.dex
 0.set=DEX
-count=1
+0.base=/home/frederico/AndroidStudioProjects/ChatFireBase2/app/build/intermediates/transforms/dexMerger/debug/1
+2.baseType=DIRECTORY
+1.path=classes2.dex
