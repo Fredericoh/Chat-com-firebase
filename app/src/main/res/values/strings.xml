@@ -6,4 +6,6 @@
     <string name="imagem">Imagem</string>
     <string name="contatos">Contatos</string>
     <string name="logout">Sair</string>
+    <string name="btnEnviar">Enviar</string>
+    <string name="mensagem">Digite sua mensagem</string>
 </resources>

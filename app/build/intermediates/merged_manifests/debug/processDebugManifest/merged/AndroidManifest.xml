@@ -43,6 +43,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MensagemActivity" />
         </activity>
+        <activity android:name="faculdadedelta.edu.br.chatfirebase.ChatActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MensagemActivity" />
+        </activity>
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

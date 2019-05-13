@@ -1,5 +1,6 @@
 package faculdadedelta.edu.br.chatfirebase;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
 import com.xwray.groupie.ViewHolder;
 
 import java.util.List;
@@ -38,6 +40,19 @@ public class ContatosActivity extends AppCompatActivity {
         adapter = new GroupAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull Item item, @NonNull View view) {
+                Intent intent = new Intent(getBaseContext(), ChatActivity.class);
+
+                ItemUsuario itemUsuario = (ItemUsuario) item;
+
+                intent.putExtra("usuario", itemUsuario.usuario);
+
+                startActivity(intent);
+            }
+        });
 
         buscarUsuarios();
     }

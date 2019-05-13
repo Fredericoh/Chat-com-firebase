@@ -1,6 +1,9 @@
 package faculdadedelta.edu.br.chatfirebase;
 
-public class Usuario {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Usuario implements Parcelable {
 
     private String uuid;
     private String nomeUsuario;
@@ -15,6 +18,24 @@ public class Usuario {
         this.nomeUsuario = nomeUsuario;
         this.proFileUrl = proFileUrl;
     }
+
+    protected Usuario(Parcel in) {
+        uuid = in.readString();
+        nomeUsuario = in.readString();
+        proFileUrl = in.readString();
+    }
+
+    public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
+        @Override
+        public Usuario createFromParcel(Parcel in) {
+            return new Usuario(in);
+        }
+
+        @Override
+        public Usuario[] newArray(int size) {
+            return new Usuario[size];
+        }
+    };
 
     public String getUuid() {
         return uuid;
@@ -38,5 +59,17 @@ public class Usuario {
 
     public void setProFileUrl(String proFileUrl) {
         this.proFileUrl = proFileUrl;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uuid);
+        dest.writeString(nomeUsuario);
+        dest.writeString(proFileUrl);
     }
 }

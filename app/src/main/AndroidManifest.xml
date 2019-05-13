@@ -18,13 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/contatos"
-            android:name=".ContatosActivity">
-
+        <activity
+            android:name=".ContatosActivity"
+            android:label="@string/contatos">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MensagemActivity" />
-
+        </activity>
+        <activity android:name=".ChatActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MensagemActivity" />
         </activity>
     </application>
 
