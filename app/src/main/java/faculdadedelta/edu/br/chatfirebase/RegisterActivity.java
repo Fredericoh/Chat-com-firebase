@@ -33,7 +33,7 @@ import java.util.UUID;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText mEtUsuario;
+    private EditText mEtUsuario; //= findViewById(R.id.etUsuario);
     private EditText mEtEmail;
     private EditText mEtSenha;
     private Button mBtnCadastrar;
@@ -107,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEtUsuario.setText("");
         mEtEmail.setText("");
         mEtSenha.setText("");
+        mImgPerfil.setImageDrawable(null);
     }
 
     private void criarUsuario(){
@@ -115,14 +116,13 @@ public class RegisterActivity extends AppCompatActivity {
         String email = mEtEmail.getText().toString();
         String senha = mEtSenha.getText().toString();
 
-        if (nomeUsuario == null || nomeUsuario.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()){
+        if ( mSelecionarUri == null || nomeUsuario.isEmpty() || email.isEmpty() || senha.isEmpty()){
 
-            Toast.makeText(getBaseContext(), "Os campos usuario, email e senha são obrigatorio. ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Os campos imagem, usuario, email e senha são obrigatorio. ", Toast.LENGTH_LONG).show();
             return;
-        } else {
-            Toast.makeText(getBaseContext(), "Usuario cadastrado com sucesso. ", Toast.LENGTH_LONG).show();
-            limparCampos();
         }
+
+
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -143,6 +143,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.i("Teste", e.getMessage());
             }
         });
+
 
     }
 
@@ -174,12 +175,20 @@ public class RegisterActivity extends AppCompatActivity {
                                             public void onSuccess(DocumentReference documentReference) {
                                                 Log.i("Teste", documentReference.getId());
 
+                                                Intent intent = new Intent(getBaseContext(), MensagemActivity.class);
+
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                                startActivity(intent);
+                                               // Toast.makeText(getBaseContext(), "Usuario cadastrado com sucesso. ", Toast.LENGTH_LONG).show();
+                                               // limparCampos();
+
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Log.i("Teste", e.getMessage());
+                                                Log.i("Error", e.getMessage());
                                             }
                                         });
                             }

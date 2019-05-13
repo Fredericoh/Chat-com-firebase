@@ -27,14 +27,22 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="faculdadedelta.edu.br.chatfirebase.LoginActivity" >
+        <activity android:name="faculdadedelta.edu.br.chatfirebase.LoginActivity" />
+        <activity android:name="faculdadedelta.edu.br.chatfirebase.RegisterActivity" />
+        <activity android:name="faculdadedelta.edu.br.chatfirebase.MensagemActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="faculdadedelta.edu.br.chatfirebase.RegisterActivity" />
+        <activity
+            android:name="faculdadedelta.edu.br.chatfirebase.ContatosActivity"
+            android:label="@string/contatos" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MensagemActivity" />
+        </activity>
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -62,6 +70,11 @@
                 android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="faculdadedelta.edu.br.chatfirebase.com.squareup.picasso"
+            android:exported="false" />
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"

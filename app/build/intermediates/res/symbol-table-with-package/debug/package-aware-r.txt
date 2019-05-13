@@ -140,6 +140,11 @@ attr editTextStyle
 attr elevation
 attr emptyVisibility
 attr expandActivityOverflowButtonDrawable
+attr fastScrollEnabled
+attr fastScrollHorizontalThumbDrawable
+attr fastScrollHorizontalTrackDrawable
+attr fastScrollVerticalThumbDrawable
+attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
 attr font
 attr fontFamily
@@ -172,6 +177,7 @@ attr itemPadding
 attr keylines
 attr lastBaselineToBottomHeight
 attr layout
+attr layoutManager
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
@@ -269,6 +275,7 @@ attr radioButtonStyle
 attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
+attr reverseLayout
 attr scopeUris
 attr searchHintIcon
 attr searchIcon
@@ -281,11 +288,13 @@ attr showDividers
 attr showText
 attr showTitle
 attr singleChoiceItemLayout
+attr spanCount
 attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
 attr srcCompat
+attr stackFromEnd
 attr state_above_anchor
 attr statusBarBackground
 attr subMenuArrow
@@ -538,6 +547,9 @@ dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fastscroll_default_thickness
+dimen fastscroll_margin
+dimen fastscroll_minimum_range
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -545,6 +557,9 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen item_touch_helper_max_drag_scroll_per_frame
+dimen item_touch_helper_swipe_escape_max_velocity
+dimen item_touch_helper_swipe_escape_velocity
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -744,6 +759,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id contatos
 id content
 id contentPanel
 id custom
@@ -776,16 +792,19 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView
 id imgPerfil
 id info
 id invisible
 id italic
+id item_touch_helper_previous_elevation
 id left
 id light
 id line1
 id line3
 id listMode
 id list_item
+id logOut
 id media_actions
 id message
 id middle
@@ -806,6 +825,7 @@ id radio
 id right
 id right_icon
 id right_side
+id rvContatos
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -852,6 +872,7 @@ id title_template
 id top
 id topPanel
 id tvCadastrar
+id tvMensagem
 id uniform
 id up
 id useLogo
@@ -893,8 +914,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_contatos
 layout activity_login
+layout activity_mensagem
 layout activity_register
+layout item_usuario
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -914,6 +938,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 string Login
@@ -976,6 +1001,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string contatos
 string default_web_client_id
 string firebase_database_url
 string gcm_defaultSenderId
@@ -985,6 +1011,7 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string imagem
 string inserir
+string logout
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -1380,6 +1407,7 @@ styleable MenuView android_windowAnimationStyle android_itemTextAppearance andro
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
+styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme

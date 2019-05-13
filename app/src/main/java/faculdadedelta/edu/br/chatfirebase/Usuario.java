@@ -6,6 +6,10 @@ public class Usuario {
     private String nomeUsuario;
     private String proFileUrl;
 
+    public Usuario() {
+
+    }
+
     public Usuario(String uuid, String nomeUsuario, String proFileUrl) {
         this.uuid = uuid;
         this.nomeUsuario = nomeUsuario;

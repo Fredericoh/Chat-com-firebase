@@ -4,4 +4,6 @@
     <string name="cadastrar">Não tem uma conta? Crie aqui.</string>
     <string name="inserir">Cadastrar</string>
     <string name="imagem">Imagem</string>
+    <string name="contatos">Contatos</string>
+    <string name="logout">Sair</string>
 </resources>
