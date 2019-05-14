@@ -22,7 +22,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -30,6 +29,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import faculdadedelta.edu.br.chatfirebase.br.edu.faculdadedelta.modelo.Usuario;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -169,19 +170,17 @@ public class RegisterActivity extends AppCompatActivity {
                                 final Usuario usuario = new Usuario(uid, nomeUsuario, proFileUrl);
 
                                 FirebaseFirestore.getInstance().collection("usuarios")
-                                        .add(usuario)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        .document(uid)
+                                        .set(usuario)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
-                                            public void onSuccess(DocumentReference documentReference) {
-                                                Log.i("Teste", documentReference.getId());
+                                            public void onSuccess(Void aVoid) {
 
                                                 Intent intent = new Intent(getBaseContext(), MensagemActivity.class);
 
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
                                                 startActivity(intent);
-                                               // Toast.makeText(getBaseContext(), "Usuario cadastrado com sucesso. ", Toast.LENGTH_LONG).show();
-                                               // limparCampos();
 
                                             }
                                         })

@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imMensagemRecebida"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivMensagemRecebida"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -19,14 +19,13 @@
 
     <TextView
         android:id="@+id/tvMensagemRecebida"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
         android:background="@drawable/bg_edittext_rounded"
+        android:maxWidth="250dp"
         android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imMensagemRecebida"
-        app:layout_constraintTop_toTopOf="@+id/imMensagemRecebida" />
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ivMensagemRecebida"
+        app:layout_constraintTop_toTopOf="@+id/ivMensagemRecebida" />
 </android.support.constraint.ConstraintLayout>

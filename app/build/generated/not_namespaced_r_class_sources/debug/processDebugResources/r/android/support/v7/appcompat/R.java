@@ -661,9 +661,9 @@ public final class R {
         public static final int home = 0x7f070050;
         public static final int icon = 0x7f070052;
         public static final int icon_group = 0x7f070053;
-        public static final int image = 0x7f070057;
-        public static final int info = 0x7f07005a;
-        public static final int italic = 0x7f07005c;
+        public static final int image = 0x7f070056;
+        public static final int info = 0x7f070059;
+        public static final int italic = 0x7f07005b;
         public static final int left = 0x7f07005e;
         public static final int line1 = 0x7f070060;
         public static final int line3 = 0x7f070061;

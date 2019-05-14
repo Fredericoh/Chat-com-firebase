@@ -26,6 +26,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import faculdadedelta.edu.br.chatfirebase.br.edu.faculdadedelta.modelo.Usuario;
+
 public class ContatosActivity extends AppCompatActivity {
 
     private GroupAdapter adapter;

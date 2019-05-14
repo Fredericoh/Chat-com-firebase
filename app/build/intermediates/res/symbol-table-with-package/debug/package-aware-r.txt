@@ -793,7 +793,6 @@ id icon
 id icon_group
 id icon_only
 id ifRoom
-id imMensagemRecebida
 id image
 id imageView
 id imgPerfil
@@ -801,6 +800,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id ivMensagemRecebida
 id left
 id light
 id line1
