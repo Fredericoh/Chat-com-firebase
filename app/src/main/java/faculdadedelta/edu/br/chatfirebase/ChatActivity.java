@@ -32,6 +32,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import faculdadedelta.edu.br.chatfirebase.br.edu.faculdadedelta.modelo.Contato;
 import faculdadedelta.edu.br.chatfirebase.br.edu.faculdadedelta.modelo.Mensagem;
 import faculdadedelta.edu.br.chatfirebase.br.edu.faculdadedelta.modelo.Usuario;
 
@@ -118,11 +119,11 @@ public class ChatActivity extends AppCompatActivity {
 
         etChat.setText(null);
 
-        String idRecebido = FirebaseAuth.getInstance().getUid();
-        String idEnviado = usuario.getUuid();
+        final String idRecebido = FirebaseAuth.getInstance().getUid();
+        final String idEnviado = usuario.getUuid();
         long tempo = System.currentTimeMillis();
 
-        Mensagem mensagem = new Mensagem();
+        final Mensagem mensagem = new Mensagem();
         mensagem.setIdRecebido(idEnviado);
         mensagem.setIdEnviado(idRecebido);
         mensagem.setTempo(tempo);
@@ -130,13 +131,27 @@ public class ChatActivity extends AppCompatActivity {
 
         if (!mensagem.getTexto().isEmpty()){
             FirebaseFirestore.getInstance().collection("/conversas")
-                    .document(idRecebido)
-                    .collection(idEnviado)
+                    .document(idEnviado)
+                    .collection(idRecebido)
                     .add(mensagem)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("Teste", documentReference.getId());
+
+                            Contato contato = new Contato();
+                            contato.setUuid(idEnviado);
+                            contato.setNomeUsuario(usuario.getNomeUsuario());
+                            contato.setFotoUrl(usuario.getProFileUrl());
+                            contato.setTempo(mensagem.getTempo());
+                            contato.setUltimaMensagem(mensagem.getTexto());
+
+
+                            FirebaseFirestore.getInstance().collection("/ultimas-mensagens")
+                                    .document(idEnviado)
+                                    .collection("/contatos")
+                                    .document(idRecebido)
+                                    .set(contato);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -147,14 +162,28 @@ public class ChatActivity extends AppCompatActivity {
                     });
 
             FirebaseFirestore.getInstance().collection("/conversas")
-                    .document(idEnviado)
-                    .collection(idRecebido)
+                    .document(idRecebido)
+                    .collection(idEnviado)
                     .add(mensagem)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("Teste", documentReference.getId());
+
+                            Contato contato = new Contato();
+                            contato.setUuid(idRecebido);
+                            contato.setNomeUsuario(usuario.getNomeUsuario());
+                            contato.setFotoUrl(usuario.getProFileUrl());
+                            contato.setTempo(mensagem.getTempo());
+                            contato.setUltimaMensagem(mensagem.getTexto());
+
+                            FirebaseFirestore.getInstance().collection("/ultimas-mensagens")
+                                    .document(idRecebido)
+                                    .collection("/contatos")
+                                    .document(idEnviado)
+                                    .set(contato);
                         }
+
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override

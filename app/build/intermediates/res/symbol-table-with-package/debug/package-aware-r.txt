@@ -877,6 +877,7 @@ id top
 id topPanel
 id tvCadastrar
 id tvMensagem
+id tvMensagem2
 id tvMensagemRecebida
 id uniform
 id up
@@ -927,6 +928,7 @@ layout activity_register
 layout item_mensagem_enviada
 layout item_mensagem_recebida
 layout item_usuario
+layout item_usuario_mensagem
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
